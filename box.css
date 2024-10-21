@@ -1,0 +1,24 @@
+.container{
+    border: 10px double red;
+    font-size: 1.5em;
+    width: 70%;
+    margin: 10px auto;
+    outline: 5px solid purple;
+    offset: -20px; ;
+}
+.circle{
+    width: 300px;
+    border: 5px solid black;
+    height: 300px;
+    background-color: yellow;
+    outline: 5px solid red;
+    offset: -10px;
+    border-radius: 150px;
+    
+}
+.roboto-regular {
+    font-family: "Roboto", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
