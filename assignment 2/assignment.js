@@ -1,7 +1,7 @@
 //question 1
 
 
-const array=[1,2,3,4,5,6,7,80,9,10,11,12,130,14,15,16,17,18,19,20];
+const array=[1,2,3,4,5,6,7,80,9,10,11,12,130,11,15,16,17,18,19,20];
 document.getElementById('array1').innerHTML=
 "The initial array is "+array;
 //question 1
@@ -143,12 +143,15 @@ const names=['boitenge','jerome','aldrin','Kafuluta','Theonce','Khabibu','Khassi
         }
         
 
+      
     }
     displayNames();
     //question 12
     function arrangeNames(){
         const sortedNames=names.sort((a,b) => a.localeCompare(b));
-        document.getElementById('q12').innerHTML=" The alphabetical names are "+sortedNames+'<br>';
+        document.getElementById('q12').innerHTML=
+        " The alphabetical names are "+sortedNames+'<br>';
+        
     }
     arrangeNames();
     //Question 13
@@ -192,6 +195,7 @@ const names=['boitenge','jerome','aldrin','Kafuluta','Theonce','Khabibu','Khassi
                 found.push(names[i]);
             }
         }
+        
         document.getElementById('q15').innerHTML=
         "The names in the arrray started with "+start +"are "+found;
     }
@@ -202,14 +206,116 @@ const names=['boitenge','jerome','aldrin','Kafuluta','Theonce','Khabibu','Khassi
         for(let i=0;i<names.length;i++){
             upperlisedArray.push(names[i].toUpperCase());
         }    
-            document.getElementById('q16').innerHTML=upperlisedArray;
+            document.getElementById('q16').innerHTML=
+            "the upperlised array is "+upperlisedArray;
     }
     upperlisee();
     // question 17
-    function removeName(){
-        const remove='jerome';
-        const namesList=names;
-        namesList.pop(remove);
-    console.log(namesList) ;
-   }
-   removeName();
+    function removeName() {
+        const remove = 'Rene';
+        const index = names.indexOf(remove); 
+     remainingNames=names;
+        if (index !== -1) { 
+            remainingNames.splice(index, 1); 
+        }
+        
+        document.getElementById('q17').innerHTML=
+        "The remaining names from the array are "+remainingNames;
+        
+    }
+    
+    removeName();
+    //Question 18
+    function CountFound(){
+        let count=0;
+        for(let i=0;i<names.length;i++){
+            if(names[i].includes('a')){
+                count +=1;
+            }
+        }
+        document.getElementById('q18').innerHTML=
+        "The names with letter a are "+count;
+       
+    }
+    CountFound();
+    //Question 19
+    function singleString(){
+        let string='';
+        for(let i=0;i<names.length;i++){
+            string +=names[i]+',';
+        }
+      document.getElementById('q19').innerHTML=
+      "the string of all array names is"+string;
+      
+    }
+    singleString();
+    //Question 20
+    let ff=names;
+    function reverseString(){
+       
+        const reversedNames=ff.reverse();
+        document.getElementById('q20').innerHTML="The reversed names of the array is"+reversedNames;
+        
+    }
+    reverseString();
+    //Question 21
+    const person=
+    {name:"Florance",
+     age:23,
+     occupation:"student"
+
+    };
+    // console.log(person);
+//Question 22(
+function  take(){
+    let obj=person.name +" "+person.age +" "+ person.occupation;
+    // console.log(obj);
+}
+
+take();
+//Question 23
+function addPropert(){
+    person.gender="female";
+    // console.log(person);
+}
+addPropert();
+//Question 24
+function removeProperty(){
+    delete person.age;
+    // console.log(person);
+}
+removeProperty();
+//question 25
+function display(){
+    // console.log(person);
+}
+display();
+//question 26
+function mergeObj(){
+    let address={
+        tel:'0782433539',
+        email:'niyoduflorence@gmail.com',
+        location:'kigali'
+    };
+    let peaple={...person,...address};
+    // console.log(peaple);
+}
+
+mergeObj();
+//Question 27
+
+function checkProperty(){
+    let chech=("pie" in person);
+   document.getElementById('q27').innerHTML=chech;
+}
+checkProperty();
+//question 28
+function cloneObject(){
+    let clone=Object.assign({},person);
+   document.getElementById('q28').innerHTML=
+   "the cloned object is clone "+clone;
+}
+cloneObject();
+//Question 29
+
+
