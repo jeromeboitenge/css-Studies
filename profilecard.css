@@ -1,0 +1,191 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+ img{ 
+    display: block;
+    max-width: 100%;
+    height: auto;
+ }
+body {
+    font: 1.5rem "Nunito", sans-serif;
+    min-height: 100vh;
+    background-color: #454545;
+    background-image: radial-gradient(whitesmoke, #454545);
+    display: flex;
+    flex-direction: column;
+}
+header, nav, main, footer {
+    display: grid;
+    place-content: center;
+    grid-template-columns: 100%;
+    text-align: center;
+}
+header, footer {
+    position: sticky;
+    background-color: #1E293B;
+    color: whitesmoke;
+}
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap :1.5rem;
+padding: 1rem;
+}
+nav {
+    color: red;
+    padding: 0.5rem;
+    border-bottom: 2px solid black;
+    font-weight: bolder ;
+    display: flex;
+    justify-content:space-evenly
+}
+nav ,
+nav a:visited,
+nav a:focus{
+    color: black;
+
+}
+nav:active{
+    color: red;
+}
+nav a:hover{
+    color: hsla(0, 0%, 20%, 0.6);
+}
+header {
+    top: 0;
+   
+}
+/* profile-cards */
+.card{
+    scroll-margin-top: 8rem;
+    width: min(100%,350px);
+border: 2px solid black;
+border-radius: 20px; 
+flex-direction: column;
+align-items: center;
+    
+}
+.card figure{
+    display: flex;
+    flex-flow: column nowrap;
+}
+ .card img{
+    border: 5px double #333;
+    border-radius: 50%;
+ }
+ .card img[alt]{
+    border: 10px solid red;
+ }
+ .figcaption{
+    font-weight: bolder;
+    font-size: 2rem;
+    margin: 1rem;
+    text-align: center;
+ }
+
+ .card:nth-child(even){
+    background-color:red;
+ }
+ .card figcaption::after{
+    content: '\2665';
+    display: block;
+ }
+ .card p::before{
+    content: open-quote;
+    font-size: 3em;
+    position: absolute;
+    top: -0.25em;
+    left: -0.5em;
+ }
+ /* .card p::after{
+    content: close-quote;
+    font-size: 3em;
+    position: absolute;
+    top: -0.25em;
+    left: -0.5em;
+ } */
+
+.card figcaption::last-letter{
+    font-size: 5em;
+}
+.card figcaption::misecond-line{
+    font-size: 10em;
+}
+/* Small screens (up to 576px) */
+@media screen and (min-width: 576px) {
+    main{
+        justify-content: cente;
+        flex-flow:row wrap; 
+    padding: 1rem;
+   }
+    .card{
+        width: min(100%, 400px);
+    }
+     .card:last-child{
+order: -1;
+     }
+}
+
+/* Medium screens (up to 780px) */
+@media screen and (min-width: 768px) {
+    nav{
+        display: none;
+    }
+    .card{
+        width:min(100%,325px);
+    }
+    .card figure{
+        flex-flow: column-reverse;
+    }
+    .card .figcaption{
+        margin: 0.1em;
+    }
+    .card p{
+        margin-top:1rem;
+    }
+
+}
+/* Large screens (up to 992px) */
+@media screen and (min-width: 992px) {
+    .card{
+        width: min(100%,400px);
+    }
+    .card:nth-child(2){
+        order: -1;
+    }
+}
+
+/* Extra-large screens (1200px and above) */
+@media screen and (min-width: 992px) {
+ .card{
+    width: min(calc(33%-1rem),500px);
+ }
+}
+
+/* Mobile devices with specific aspect ratio */
+@media screen and (max-height: 425px) {
+   nav{
+    display: none;
+
+   }
+   main{
+    flex-flow: space-evenly;
+    justify-content: center;
+    align-items: stretch;
+   }
+   .card{
+    width: min(calc(33%-0.25rem),200px);
+
+   }
+   .card p, 
+   .card figcaption{
+font-size: 1.25rem;
+
+}}

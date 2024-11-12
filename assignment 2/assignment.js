@@ -268,24 +268,36 @@ const names=['boitenge','jerome','aldrin','Kafuluta','Theonce','Khabibu','Khassi
     // console.log(person);
 //Question 22(
 function  take(){
-    let obj=person.name +" "+person.age +" "+ person.occupation;
+    return `Name:${person.name}  Age:${person.age}  Occupation:${person.occupation}`;
     // console.log(obj);
+
 }
 
-take();
+let obj=take();
+document.getElementById('q22').innerHTML="The person object is is "+obj;
 //Question 23
 function addPropert(){
     person.gender="female";
     // console.log(person);
+    const ob=`Name:${person.name}  Age:${person.age} 
+     Occupation:${person.occupation}  Gender:${person.gender}`;
+    document.getElementById('q23').innerHTML=ob;
+    
 }
 addPropert();
 //Question 24
 function removeProperty(){
     delete person.age;
+    const remains=JSON.stringify(person, null, 4);
+    document.getElementById('q24').innerHTML=
+    "the remaining properties are "+remains;
+    
     // console.log(person);
 }
 removeProperty();
 //question 25
+document.getElementById('q25').innerHTML=
+"the remaining properties are "+JSON.stringify(person,null,2);;
 function display(){
     // console.log(person);
 }
@@ -298,6 +310,8 @@ function mergeObj(){
         location:'kigali'
     };
     let peaple={...person,...address};
+    peaple=JSON.stringify(person,null,2);
+    document.getElementById('q26').innerHTML="The marged object is "+peaple;
     // console.log(peaple);
 }
 
@@ -306,16 +320,101 @@ mergeObj();
 
 function checkProperty(){
     let chech=("pie" in person);
-   document.getElementById('q27').innerHTML=chech;
+   if(chech==true){
+    document.getElementById('q27').innerHTML=
+    "Yes the dearched property appears in the object";
+   }
+   else{
+    document.getElementById('q27').innerHTML=
+    " No, the searched propety does not appear in the object";
+   }
 }
 checkProperty();
 //question 28
 function cloneObject(){
     let clone=Object.assign({},person);
    document.getElementById('q28').innerHTML=
-   "the cloned object is clone "+clone;
+   "the cloned object is clone "+JSON.stringify(clone,null,2);
 }
 cloneObject();
 //Question 29
+function printProperty(arr, property) {
+    let dive = document.getElementById('q29');
+    dive.innerHTML = ''; // Clear previous content
 
+    for (let i = 0; i < arr.length; i++) {
+        dive.innerHTML += `<div>${arr[i][property]}</div>`; // Corrected string interpolation
+    }
+}
 
+// Example usage
+const People = [
+    { name: "Florance", age: 23, occupation: "Student" },
+    { name: "Jerome", age: 29, occupation: "Teacher" },
+    { name: "Aldrin", age: 35, occupation: "Engineer" }
+];
+
+printProperty(People, "name");
+//Question 30
+
+function updateProperty(obj) {
+    const property = 
+    prompt("Enter the property you want to update (name, age, occupation):");
+    if (obj.hasOwnProperty(property)) {
+        const newValue = prompt(`Enter the new value for ${property}:`);
+        obj[property] = newValue;
+        
+    } else {
+        console.log("Property does not exist.");
+    
+    }
+    document.getElementById('q30').innerHTML=JSON.stringify(person);
+    
+}
+
+updateProperty(person);
+//Question 31
+function reverseString(){
+    let revesedString='';
+    const real="boitenge";
+    for(let i=real.length-1;i>=0;i--){
+        revesedString +=real[i];
+    }
+   document.getElementById('q31').innerHTML="the real name is "+ real+" its reverse is "+revesedString;
+
+    }
+    reverseString();
+// question 32
+function countVowels() {
+    const vowels = "aeiouAEIOU";
+    const word = "why are you here";
+    let count = 0;
+  
+    for (let i = 0; i < word.length; i++) {
+      if (vowels.includes(word[i])) {
+        count++;
+      }
+    }
+  
+    document.getElementById('q32').innerHTML=
+    "the vowels in the string "+word+" are "+count;
+  }
+  
+  countVowels();
+//   question 23
+function toUpperCase(str) {
+    const uppercaseOffset = 32; // Difference between uppercase and lowercase ASCII codes
+  
+    let result = "";
+    for (let i = 0; i < str.length; i++) {
+      const charCode = str.charCodeAt(i);
+      if (charCode >= 97 && charCode <= 122) { // Check if it's a lowercase letter
+        result += String.fromCharCode(charCode - uppercaseOffset);
+      } else {
+        result += str[i];
+      }
+    }
+  
+    return result;
+  }
+  

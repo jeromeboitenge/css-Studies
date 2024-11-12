@@ -1,0 +1,80 @@
+/* Base styles */
+body {
+    font: 1.5rem "Nunito", sans-serif;
+    min-height: 100vh;
+    background-color: #454545;
+    background-image: radial-gradient(whitesmoke, #454545);
+    display: flex;
+    flex-direction: column;
+}
+header, nav, main, footer {
+    display: grid;
+    place-content: center;
+    grid-template-columns: 100%;
+    text-align: center;
+}
+header, footer {
+    position: sticky;
+    background-color: #1E293B;
+    color: whitesmoke;
+}
+main {
+    flex-grow: 1;
+}
+nav {
+    color: black;
+    padding: 0.5rem;
+    border-bottom: 2px solid black;
+}
+header {
+    top: 0;
+}
+
+/* Small screens (up to 576px) */
+@media screen and (max-width: 576px) {
+    body {
+        background-color: green;
+        background-image: radial-gradient(whitesmoke, green);
+    }
+    nav {
+        display: none;
+    }
+}
+
+/* Medium screens (up to 780px) */
+@media screen and (min-width: 576px) and (max-width: 780px) {
+    body {
+        background-color: gold;
+        background-image: radial-gradient(whitesmoke, gold);
+    }
+}
+
+/* Large screens (up to 992px) */
+@media screen and (min-width: 780px) and (max-width: 992px) {
+    body {
+        background-color: firebrick;
+        background-image: radial-gradient(whitesmoke, firebrick);
+    }
+}
+
+/* Extra-large screens (1200px and above) */
+@media screen and (min-width: 992px) {
+    body {
+        background-color: purple;
+        background-image: radial-gradient(whitesmoke, purple);
+    }
+}
+
+/* Mobile devices with specific aspect ratio */
+@media screen and (max-height: 425px) {
+    body {
+        background-color: rebeccapurple;
+        background-image: radial-gradient(whitesmoke, rebeccapurple);
+    }
+    nav {
+        display: none;
+    }
+    h1, h2 {
+        font-size: 1.5rem; /* Removed the space in "1.5 rem" */
+    }
+}
